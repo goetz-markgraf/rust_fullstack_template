@@ -21,6 +21,6 @@ jobs:
       - name: Set Nightly Toolchain
         run: rustup default nightly
       - name: Build
-        run: cargo build --verbose
+        run: cargo build
       - name: Run tests
-        run: cargo test --verbose
+        run: cargo test
