@@ -1,3 +1,6 @@
-pub fn get_greeting() -> String {
-    "Hello, Rust!".to_string()
+use serde::{Deserialize, Serialize};
+
+#[derive(Serialize, Deserialize)]
+pub struct MessageDto {
+    pub text: String,
 }

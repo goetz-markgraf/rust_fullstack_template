@@ -1,6 +1,7 @@
 use leptos::*;
 
+mod app;
+
 fn main() {
-    let text = shared::get_greeting();
-    mount_to_body(|| view! { <p>{text}</p> })
+    mount_to_body(app::App)
 }
