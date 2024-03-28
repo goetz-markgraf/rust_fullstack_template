@@ -1,9 +1,10 @@
+use anyhow::Result;
 use leptos::*;
 
-async fn fetch_message() -> Result<String, reqwest::Error> {
+async fn fetch_message() -> Result<String> {
     let response = reqwest::get("http://localhost:8080/api/message").await?;
     let body = response.text().await?;
-    let body = serde_json::from_str::<shared::MessageDto>(&body).unwrap_or_else(|e| shared::MessageDto { text: e.to_string() });
+    let body = serde_json::from_str::<shared::MessageDto>(&body)?;
     Ok(body.text)
 }
 
