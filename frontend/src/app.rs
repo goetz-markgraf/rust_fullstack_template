@@ -28,7 +28,7 @@ pub fn App() -> impl IntoView {
             <h1>{ "Hello, World!" }</h1>
         </div>
         <Suspense fallback=move || view!{ <p> "Loading..." </p> }>
-            { move || match message.get().unwrap_or(Ok("Loading ...".to_string())) {
+            { move || match message().unwrap_or(Ok("Loading ...".to_string())) {
                 Ok(text) => view!{ <p>{ text }</p> },
                 Err(e) => view!{ <p style:color="red" >{ e }</p> },
             }}
