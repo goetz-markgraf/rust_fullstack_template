@@ -1,4 +1,3 @@
-#[macro_use]
 extern crate rocket;
 
 use rocket::{get, launch, routes};
