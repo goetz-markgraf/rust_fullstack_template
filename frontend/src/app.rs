@@ -19,7 +19,7 @@ async fn fetch_message() -> Result<String> {
 
 #[component]
 pub fn App() -> impl IntoView {
-    let message = create_resource(|| (), |_| async move {
+    let message = create_resource(|| (), |_| async {
         fetch_message().await.map_err(|e| e.to_string())
     });
 
